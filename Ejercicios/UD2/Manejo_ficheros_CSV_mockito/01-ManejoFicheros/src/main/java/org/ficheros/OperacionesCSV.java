@@ -16,8 +16,8 @@ public class OperacionesCSV {
         return list.stream().collect(Collectors.groupingBy(Funko::getModel));
     }
 
-    public static void amountOfFunkosByModel(List<Funko> list){
-        funkosByModel(list).entrySet().forEach(entry -> System.out.println(entry.getKey() + " - " + entry.getValue().size()));
+    public static Map<String, Integer> amountOfFunkosByModel(List<Funko> list){
+        funkosByModel(list).collect(Collectors.counting());
     }
 
     public static List<Funko> funkosReleasedIn2023(List<Funko> list){

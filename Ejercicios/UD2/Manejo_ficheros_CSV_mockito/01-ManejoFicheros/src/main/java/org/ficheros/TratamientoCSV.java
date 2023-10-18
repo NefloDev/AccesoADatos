@@ -23,15 +23,13 @@ public class TratamientoCSV {
             System.out.println("\n#################### Total prices median: " + String.format("%.2f", OperacionesCSV.medianPrice(funkoList)) + "€");
 
             System.out.println("\n#################### Funkos by model ####################");
-            for (Entry<String, List<Funko>> entry: OperacionesCSV.funkosByModel(funkoList).entrySet()) {
-                for (Funko f: entry.getValue()) {
-                    System.out.println(entry.getKey() + " - " + f.getName() + " (" + f.getCode() + ")");
-                }
-                System.out.print("\n");
-            }
+            OperacionesCSV.funkosByModel(funkoList).forEach((model, list) -> {
+                System.out.println(model + ": ");
+                list.forEach(p -> System.out.println(p.getName));
+            });
 
             System.out.println("#################### Amount of funkos by model ####################");
-            OperacionesCSV.amountOfFunkosByModel(funkoList);
+            OperacionesCSV.amountOfFunkosByModel(funkoList).forEach((model, amount) -> System.out.println(model + " - " + amount));
 
             System.out.println("\n#################### Funkos released in 2023 ####################");
             OperacionesCSV.funkosReleasedIn2023(funkoList).forEach(f -> System.out.println(f.getName() + " (" + f.getCode() + ")"));

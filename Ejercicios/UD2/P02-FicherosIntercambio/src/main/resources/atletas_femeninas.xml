@@ -1,0 +1,20 @@
+<List12>
+  <item nombre="Mireya">
+    <edad>19</edad>
+    <pais>Inglaterra</pais>
+    <pruebas>
+      <prueba>Carrera de vallas</prueba>
+      <prueba>Salto de longitud</prueba>
+      <prueba>Salto de altura</prueba>
+    </pruebas>
+  </item>
+  <item nombre="Irene">
+    <edad>22</edad>
+    <pais>España</pais>
+    <pruebas>
+      <prueba>500m lisos</prueba>
+      <prueba>100m lisos</prueba>
+      <prueba>Carrera de vallas</prueba>
+    </pruebas>
+  </item>
+</List12>
