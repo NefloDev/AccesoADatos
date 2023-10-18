@@ -57,14 +57,22 @@ public class AtletaFemenina {
         this.pais = pais;
     }
     
+    private String getPruebas(){
+        StringBuilder sb = new StringBuilder();
+        for (String s : prueba) {
+            sb.append("\n\t\t").append("<prueba>").append(s).append("</prueba>");
+        }
+        return sb.toString();
+    }
+    
     @Override
     public String toString(){
-        return "AtletaFemenina{" +
-                "\n\tnombre='" + nombre + "\'" +
-                ",\n\tedad=" + edad +
-                ",\n\tpais='" + pais + "\'" +
-                ",\n\tprueba=" + prueba +
-                "\n}\n";
+        return "<AtletaFemenina>" +
+                "\n\t<nombre>" + nombre + "</nombre>" +
+                ",\n\t<edad>" + edad + "</edad>" +
+                ",\n\t<pais>" + pais + "</pais>" +
+                ",\n\t<pruebas>" + getPruebas() + "\n\t</pruebas>" +
+                "\n</AtletaFemenina>\n";
     }
     
 }

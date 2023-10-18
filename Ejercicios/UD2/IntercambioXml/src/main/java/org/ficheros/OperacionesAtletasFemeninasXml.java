@@ -5,7 +5,6 @@
 package org.ficheros;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.io.IOException;
@@ -63,10 +62,6 @@ public class OperacionesAtletasFemeninasXml {
         
         System.out.println("############# Atletas #############");
         readObjectListXml(atletasXml).forEach(System.out::println);
-        
-        //He añadido este porque puedo, no se
-        System.out.println("############# ATLETAS_FEMENINAS.XML #############");
-        System.out.println(readObjectListAsString(readObjectListXml(atletasXml)));
     }
     
 }
