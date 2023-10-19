@@ -16,12 +16,12 @@ public class OperacionesCSV {
         return list.stream().collect(Collectors.groupingBy(Funko::getModel));
     }
 
-    public static Map<String, Integer> amountOfFunkosByModel(List<Funko> list){
-        funkosByModel(list).collect(Collectors.counting());
+    public static void amountOfFunkosByModel(List<Funko> list){
+        funkosByModel(list).forEach((k, v) -> System.out.println(k + " - " + v.size()));
     }
 
-    public static List<Funko> funkosReleasedIn2023(List<Funko> list){
-        return list.stream().filter(l -> l.getReleaseDate().getYear() == 2023).toList();
+    public static List<Funko> funkosReleasedIn2023(List<Funko> list, int year){
+        return list.stream().filter(l -> l.getReleaseDate().getYear() == year).toList();
     }
 
 }

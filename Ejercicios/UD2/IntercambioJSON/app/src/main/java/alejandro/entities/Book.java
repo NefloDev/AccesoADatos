@@ -66,7 +66,7 @@ public class Book {
                 "\n\tautor='" + author + "\'" +
                 "\n\tpaginas='" + pages + "\'" +
                 "\n\taño_publicacion='" + publicationYear + "\'" +
-                "\n}";
+                "\n}\n";
     }
     
 }

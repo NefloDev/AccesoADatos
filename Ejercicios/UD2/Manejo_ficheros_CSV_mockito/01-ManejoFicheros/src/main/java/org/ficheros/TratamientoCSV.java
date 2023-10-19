@@ -25,14 +25,14 @@ public class TratamientoCSV {
             System.out.println("\n#################### Funkos by model ####################");
             OperacionesCSV.funkosByModel(funkoList).forEach((model, list) -> {
                 System.out.println(model + ": ");
-                list.forEach(p -> System.out.println(p.getName));
+                list.forEach(p -> System.out.println(p.getName()));
             });
 
             System.out.println("#################### Amount of funkos by model ####################");
-            OperacionesCSV.amountOfFunkosByModel(funkoList).forEach((model, amount) -> System.out.println(model + " - " + amount));
+            OperacionesCSV.amountOfFunkosByModel(funkoList);
 
             System.out.println("\n#################### Funkos released in 2023 ####################");
-            OperacionesCSV.funkosReleasedIn2023(funkoList).forEach(f -> System.out.println(f.getName() + " (" + f.getCode() + ")"));
+            OperacionesCSV.funkosReleasedIn2023(funkoList, 2023).forEach(f -> System.out.println(f.getName() + " (" + f.getCode() + ")"));
         } catch (IOException e) {
             e.printStackTrace(System.out);
         }
