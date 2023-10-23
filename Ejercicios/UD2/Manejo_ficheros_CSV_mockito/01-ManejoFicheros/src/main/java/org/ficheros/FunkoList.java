@@ -29,7 +29,7 @@ public class FunkoList {
     }
 
     public List<Funko> funkosReleasedIn2023(){
-        return OperacionesCSV.funkosReleasedIn2023(funkos);
+        return OperacionesCSV.funkosReleasedIn2023(funkos, 2023);
     }
 
 }

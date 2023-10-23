@@ -26,6 +26,7 @@ public class TratamientoCSV {
             OperacionesCSV.funkosByModel(funkoList).forEach((model, list) -> {
                 System.out.println(model + ": ");
                 list.forEach(p -> System.out.println(p.getName()));
+                System.out.println(" ");
             });
 
             System.out.println("#################### Amount of funkos by model ####################");
