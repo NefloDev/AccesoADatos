@@ -12,42 +12,46 @@ public class Main {
 
     public static void main(String[] args) {
         Path bookJson = Path.of(".","app", "src", "main", "resources", "books.json");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         List<Book> books = OperacionesJSON.readObjectListJson(bookJson);
         boolean finish = false;
-        boolean repeat;
-        int search;
+        int menu, search;
         String searchInput;
 
         do {
-            switch (menu()){
+            menu = showMenu("""
+                    ############### MENU ###############
+                    1.- See all books
+                    2.- Search book
+                    3.- Add book
+                    4.- Exit""", 1, 4);
+            switch (menu){
                 case 1:
                     books.forEach(b -> System.out.println(b.toString()));
                     break;
                 case 2:
-                    search = search();
-                    do{
-                        repeat = false;
-                        try{
-                            System.out.print("Value to search: ");
-                            searchInput = reader.readLine();
-                            if(search == 1){
-                                OperacionesJSON.showBooksByAuthor(books, searchInput);
-                            }else{
-                                OperacionesJSON.showBooksByTitle(books, searchInput);
-                            }
-                        }catch (IOException e){
-                            System.err.println("Input mismatch");
-                            repeat = true;
-                        }finally {
-                            reader = new BufferedReader(new InputStreamReader(System.in));
-                        }
-                    }while(repeat);
+                    search = showMenu("""
+                    
+                    ############### SEARCH BOOKS ###############
+                    1.- Search by author
+                    2.- Search by title
+                    3.- Exit
+                    
+                    """, 1, 3);
+
+                    searchInput = getInput("Value to search: ");
+                    if(search == 1){
+                        OperacionesJSON.showBooksByAuthor(books, searchInput);
+                    }else{
+                        OperacionesJSON.showBooksByTitle(books, searchInput);
+                    }
                     break;
                 case 3:
-                    books.add(addBook());
-                    OperacionesJSON.writeObjectListJson(books, bookJson);
+                    Book temp = addBook();
+                    if(temp != null){
+                        books.add(temp);
+                        OperacionesJSON.writeObjectListJson(books, bookJson);
+                    }
                     break;
                 default:
                     finish = true;
@@ -55,114 +59,56 @@ public class Main {
         }while(!finish);
     }
 
-    public static int menu(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int input = 0;
-        boolean repeat;
-
-        do{
-            repeat = false;
-            try{
-                System.out.println("""
-                
-                ############### MENU ###############
-                1.- See all books
-                2.- Search book
-                3.- Add book
-                4.- Exit
-                
-                """);
-                input = Integer.parseInt(reader.readLine());
-            }catch (IOException e){
-                System.err.println("Input mismatch");
-                repeat = true;
-            }finally {
-                reader = new BufferedReader(new InputStreamReader(System.in));
-            }
-
-        }while((input > 4 || input < 1) && repeat);
-
-        return input;
-    }
-
-    public static int search(){
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        boolean repeat;
-        int input = 0;
-
-        do{
-            repeat = false;
-            try{
-                System.out.println("""
-                
-                ############### SEARCH BOOKS ###############
-                1.- Search by author
-                2.- Search by title
-                3.- Exit
-                
-                """);
-                input = Integer.parseInt(reader.readLine());
-            }catch (IOException e){
-                System.err.println("Input mismatch");
-                repeat = true;
-            }finally {
-                reader = new BufferedReader(new InputStreamReader(System.in));
-            }
-
-        }while((input > 3 || input < 1) && repeat);
-
+    public static int showMenu(String message, int min, int max){
+        int input;
+        do {
+            input = getInteger(message);
+        }while (input < min || input > max);
         return input;
     }
 
     public static Book addBook(){
         Book book = null;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String isbn, title, author;
-        int pages = 0, year = 0;
-        boolean repeat;
-        boolean repeatInteger;
+        String isbnRegex = "\\d{3}-\\d{3}-\\d{5}-\\d-\\d";
+        int pages, year;
 
         do{
-            repeat = false;
-            try {
-                do{
-                    System.out.print("ISBN (XXX-XXX-XXXXX-X-X): ");
-                    isbn = reader.readLine();
-                    if(!isbn.matches("\\d{3}-\\d{3}-\\d{5}-\\d-\\d") && !isbn.equalsIgnoreCase("exit")){
-                        System.err.println("ISBN wrong format");
-                    }
-                }while(!isbn.matches("\\d{3}-\\d{3}-\\d{5}-\\d-\\d") && !isbn.equalsIgnoreCase("exit"));
-                if(!isbn.equalsIgnoreCase("exit")){
-                    System.out.print("Titulo: ");
-                    title = reader.readLine();
-                    System.out.print("Autor: ");
-                    author = reader.readLine();
-                    do {
-                        repeatInteger = false;
-                        try{
-                            System.out.print("Paginas: ");
-                            pages = Integer.parseInt(reader.readLine());
-                        }catch (NumberFormatException e) {
-                            System.err.println("Input mismatch (enter \"exit\" to exit)");
-                            repeatInteger = true;
-                        }finally {
-                            reader = new BufferedReader(new InputStreamReader(System.in));
-                        }
-                    }while(repeatInteger);
+            isbn = getInput("ISBN (XXX-XXX-XXXXX-X-X): ");
+            if(!isbn.matches(isbnRegex) && !isbn.equalsIgnoreCase("exit")){
+                System.err.println("ISBN wrong format (enter \"exit\" to exit)");
+            }
+        }while(!isbn.matches(isbnRegex) && !isbn.equalsIgnoreCase("exit"));
 
-                    do {
-                        repeatInteger = false;
-                        try{
-                            System.out.print("Año publicación: ");
-                            year = Integer.parseInt(reader.readLine());
-                        }catch (NumberFormatException e) {
-                            System.err.println("Input mismatch (enter \"exit\" to exit)");
-                            repeatInteger = true;
-                        }finally {
-                            reader = new BufferedReader(new InputStreamReader(System.in));
-                        }
-                    }while (repeatInteger);
-                    book = new Book(isbn, title, author, pages, year);
+        if(!isbn.equalsIgnoreCase("exit")){
+            title = getInput("Titulo: ");
+            if(!title.equalsIgnoreCase("exit")){
+                author = getInput("Autor: ");
+                if(!author.equalsIgnoreCase("exit")){
+                    pages = getInteger("Número de páginas: ");
+                    if(pages != -1){
+                        year = getInteger("Año publicación: ");
+                        book = year != -1 ? new Book(isbn, title, author, pages, year) : null;
+                    }
+                }
+            }
+        }
+
+        return book;
+    }
+
+    public static String getInput(String message){
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String input = "";
+        boolean repeat;
+        do{
+            repeat = false;
+            System.out.println(message);
+            try {
+                input = reader.readLine();
+                if (input.isEmpty()){
+                    repeat = true;
+                    System.err.println("Input can't be empty");
                 }
             } catch (IOException e) {
                 System.err.println("Input mismatch (enter \"exit\" to exit)");
@@ -170,9 +116,29 @@ public class Main {
             } finally {
                 reader = new BufferedReader(new InputStreamReader(System.in));
             }
-        }while(repeat);
-
-        return book;
+        }while (repeat);
+        return input;
     }
 
+    public static int getInteger(String message){
+        boolean repeatInteger;
+        String numberInput;
+        int input = 0;
+        do {
+            repeatInteger = false;
+            try{
+                numberInput = getInput(message);
+                if (!numberInput.equalsIgnoreCase("exit")){
+                    input = Integer.parseInt(numberInput);
+                }else{
+                    input = -1;
+                }
+            }catch (NumberFormatException e) {
+                System.err.println("Input mismatch (enter \"exit\" to exit)");
+                repeatInteger = true;
+            }
+        }while (repeatInteger);
+
+        return input;
+    }
 }

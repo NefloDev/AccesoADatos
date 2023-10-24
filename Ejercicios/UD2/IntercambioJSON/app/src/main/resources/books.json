@@ -1,19 +1,19 @@
 [ {
   "isbn" : "111-111-11111-1-1",
-  "autor" : "Autor1",
-  "anyoPublicacion" : 2004,
   "paginas" : 420,
-  "titulo" : "Libro1"
+  "titulo" : "Libro1",
+  "autor" : "Autor1",
+  "anyoPublicacion" : 2004
 }, {
   "isbn" : "222-222-22222-2-2",
-  "autor" : "Autor2",
-  "anyoPublicacion" : 2001,
   "paginas" : 690,
-  "titulo" : "Libro2"
+  "titulo" : "Libro2",
+  "autor" : "Autor2",
+  "anyoPublicacion" : 2001
 }, {
   "isbn" : "333-333-33333-3-3",
-  "autor" : "AutorPrueba",
-  "anyoPublicacion" : 2019,
   "paginas" : 420,
-  "titulo" : "Hola"
-} ]
+  "titulo" : "Hola",
+  "autor" : "AutorPrueba",
+  "anyoPublicacion" : 2019
+}]
