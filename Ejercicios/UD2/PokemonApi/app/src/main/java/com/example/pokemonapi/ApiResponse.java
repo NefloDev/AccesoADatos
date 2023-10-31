@@ -1,0 +1,17 @@
+package com.example.pokemonapi;
+
+import java.util.List;
+
+public class ApiResponse {
+
+    private List<Card> data;
+
+    public List<Card> getData() {
+        return data;
+    }
+
+    public void setData(List<Card> data) {
+        this.data = data;
+    }
+
+}
