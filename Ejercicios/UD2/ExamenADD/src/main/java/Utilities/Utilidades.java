@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Stream;
@@ -75,9 +76,24 @@ public class Utilidades {
 
     public static List<Actor> actoresMasJovenesEnGanarUnOscar(List<Actor> actores){
         return List.of(
-                actores.stream().filter(a -> a.getSexo().equals("H")).sorted((a1, a2) -> a2.getAnyoNacimiento()-a1.getAnyoNacimiento()).limit(1).toList().get(0),
-                actores.stream().filter(a -> a.getSexo().equals("M")).sorted((a1, a2) -> a2.getAnyoNacimiento()-a1.getAnyoNacimiento()).limit(1).toList().get(0)
+                actores.stream().filter(a -> a.getSexo().equals("H"))
+                        .sorted(Comparator.comparingInt(Utilidades::getEdadJoven))
+                        .limit(1).toList().get(0),
+                actores.stream().filter(a -> a.getSexo().equals("M"))
+                        .sorted(Comparator.comparingInt(Utilidades::getEdadJoven))
+                        .limit(1).toList().get(0)
         );
+    }
+
+    public static int getEdadJoven(Actor a){
+        return getAnyoPeliculaMasVieja(a.getPeliculas()) - a.getAnyoNacimiento();
+    }
+
+    private static int getAnyoPeliculaMasVieja(List<Pelicula> p){
+        return p.stream()
+                .sorted(Comparator.comparingInt(Pelicula::getAnyo))
+                .map(Pelicula::getAnyo)
+                .limit(1).toList().get(0);
     }
 
 }

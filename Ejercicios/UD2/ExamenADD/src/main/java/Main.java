@@ -40,7 +40,7 @@ public class Main {
         Utilidades.actoresConMasDeUnOscar(lista).forEach(p -> System.out.print(p.getNombre() + ", "));
 
         System.out.println("Actores mas jovenes cuando recibieron el oscar");
-        Utilidades.actoresMasJovenesEnGanarUnOscar(actores).forEach(a -> System.out.println(a.getNombre()));
+        Utilidades.actoresMasJovenesEnGanarUnOscar(actores).forEach(a -> System.out.println(a.getNombre() + " - " + Utilidades.getEdadJoven(a)));
 
     }
 

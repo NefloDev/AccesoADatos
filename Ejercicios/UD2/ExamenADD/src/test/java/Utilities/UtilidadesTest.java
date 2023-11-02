@@ -1,6 +1,5 @@
 package Utilities;
 
-import Entities.Actor;
 import Entities.PeliculaOscarizada;
 import org.junit.jupiter.api.Test;
 
@@ -12,16 +11,24 @@ class UtilidadesTest {
 
     //Ejercicio 3
     @Test
-    void actoresConMasDeUnOscarTest() {
+    public void actoresConMasDeUnOscarUnActorTest() {
         List<PeliculaOscarizada> lista = List.of(
                 new PeliculaOscarizada("1;1928;22;Janet Gaynor;Seventh Heaven, Street Angel and Sunrise: A Song of Two Humans"),
                 new PeliculaOscarizada("2;1928;22;Janet Gaynor;Seventh Heaven, Coquette"),
-                new PeliculaOscarizada("3;1928;22;Janet Gaynor;Seventh Heaven, The Divorcee"),
                 new PeliculaOscarizada("4;1931;63;Marie Dressler;Min and Bill")
         );
-        List<Actor> actoresMasDeUnOscar = List.of(
-                new Actor(new PeliculaOscarizada("1;1928;22;Janet Gaynor;Seventh Heaven, Street Angel and Sunrise: A Song of Two Humans"))
+        assertEquals(1, Utilidades.actoresConMasDeUnOscar(lista).size());
+    }
+
+    @Test
+    public void actoresConMasDeUnOscarDosActoresTest(){
+        List<PeliculaOscarizada> lista2 = List.of(
+                new PeliculaOscarizada("1;1928;22;Janet Gaynor;Seventh Heaven, Street Angel and Sunrise: A Song of Two Humans"),
+                new PeliculaOscarizada("2;1928;22;Janet Gaynor;Seventh Heaven, Coquette"),
+                new PeliculaOscarizada("4;1931;63;Marie Dressler;Min and Bill"),
+                new PeliculaOscarizada("5;1931;63;Marie Dressler;Mario Bros Movie"),
+                new PeliculaOscarizada("6;1999;99;Pepito Grillo;Torrente 10")
         );
-        assertEquals(actoresMasDeUnOscar.stream().map(Actor::getNombre).toList(), Utilidades.actoresConMasDeUnOscar(lista).stream().map(Actor::getNombre).toList());
+        assertEquals(2, Utilidades.actoresConMasDeUnOscar(lista2).size());
     }
 }
