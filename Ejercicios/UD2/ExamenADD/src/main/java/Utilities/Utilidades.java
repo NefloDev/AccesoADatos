@@ -15,6 +15,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Utilidades {
@@ -75,13 +77,10 @@ public class Utilidades {
     }
 
     public static List<Actor> actoresMasJovenesEnGanarUnOscar(List<Actor> actores){
+        Map<String, List<Actor>> m = actores.stream().sorted(Comparator.comparingInt(Utilidades::getEdadJoven)).collect(Collectors.groupingBy(Actor::getSexo));
         return List.of(
-                actores.stream().filter(a -> a.getSexo().equals("H"))
-                        .sorted(Comparator.comparingInt(Utilidades::getEdadJoven))
-                        .limit(1).toList().get(0),
-                actores.stream().filter(a -> a.getSexo().equals("M"))
-                        .sorted(Comparator.comparingInt(Utilidades::getEdadJoven))
-                        .limit(1).toList().get(0)
+                m.get("M").get(0),
+                m.get("H").get(0)
         );
     }
 
