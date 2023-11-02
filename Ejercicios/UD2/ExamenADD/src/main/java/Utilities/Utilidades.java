@@ -77,11 +77,10 @@ public class Utilidades {
     }
 
     public static List<Actor> actoresMasJovenesEnGanarUnOscar(List<Actor> actores){
-        Map<String, List<Actor>> m = actores.stream().sorted(Comparator.comparingInt(Utilidades::getEdadJoven)).collect(Collectors.groupingBy(Actor::getSexo));
-        return List.of(
-                m.get("M").get(0),
-                m.get("H").get(0)
-        );
+        return actores.stream()
+                .sorted(Comparator.comparingInt(Utilidades::getEdadJoven))
+                .collect(Collectors.groupingBy(Actor::getSexo))
+                .values().stream().map(e -> e.get(0)).toList();
     }
 
     public static int getEdadJoven(Actor a){
@@ -91,8 +90,7 @@ public class Utilidades {
     private static int getAnyoPeliculaMasVieja(List<Pelicula> p){
         return p.stream()
                 .sorted(Comparator.comparingInt(Pelicula::getAnyo))
-                .map(Pelicula::getAnyo)
-                .limit(1).toList().get(0);
+                .map(Pelicula::getAnyo).toList().get(0);
     }
 
 }
