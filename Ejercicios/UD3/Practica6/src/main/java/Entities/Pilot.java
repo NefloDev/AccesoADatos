@@ -14,6 +14,7 @@ public class Pilot {
     private String surname;
     private LocalDate dob;
     private String nationality;
+    private Constructor constructor;
 
     @Override
     public String toString(){
@@ -22,6 +23,7 @@ public class Pilot {
                 "\nNombre: " + name +
                 "\nApellido: " + surname +
                 "\nFecha de nacimiento: " + dob +
+                "\nEquipo: " + constructor.getName() +
                 "\nNacionalidad: " + nationality;
     }
 
