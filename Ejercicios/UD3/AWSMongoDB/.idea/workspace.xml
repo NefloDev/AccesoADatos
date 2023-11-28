@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecaa6825-6fed-4c1f-9841-267f4c85ff42" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CRUDOperationsPilot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Constructor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entities/Driver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AWSDataBaseEjercicio/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AWSDataBaseEjercicio/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CRUDOperationsPilot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CRUDOperationsPilot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +80,7 @@
       <updated>1700592464056</updated>
       <workItem from="1700592465036" duration="1554000" />
       <workItem from="1700749261453" duration="7000" />
-      <workItem from="1701194382697" duration="4378000" />
+      <workItem from="1701194382697" duration="4854000" />
     </task>
     <servers />
   </component>

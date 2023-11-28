@@ -11,36 +11,31 @@ import java.util.List;
 
 import static com.mongodb.MongoClient.getDefaultCodecRegistry;
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Sorts.descending;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 
 public class CRUDOperationsPilot {
-    private String user = "alejandro";
-    private String password = "alejo";
-    private String dns = "ec2-54-160-92-6.compute-1.amazonaws.com";
-    private String port = "27017";
-    private String databaseName = "f1-2006";
-    private String url = "mongodb://" + user + ":" + password + "@" + dns + ":" + port + "/" + databaseName;
-    private MongoCollection<Driver> collection;
-    private MongoClient client;
+    private final static String USER = "alejandro";
+    private final static String PASSWORD = "alejo";
+    private final static String DNS = "ec2-54-160-92-6.compute-1.amazonaws.com";
+    private final static String PORT = "27017";
+    private final static String DATABASE = "f1-2006";
+    private final static String URL = "mongodb://" + USER + ":" + PASSWORD + "@" + DNS + ":" + PORT + "/" + DATABASE;
+    private static MongoCollection<Driver> collection;
+    private static MongoClient client;
 
-    public CRUDOperationsPilot(){
-
-    }
-
-    private void startConnection(){
+    private static void startConnection(){
         try{
-            client = MongoClients.create(url);
+            client = MongoClients.create(URL);
             CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
             CodecRegistry pojoCodecRegistry = CodecRegistries.fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-            MongoDatabase database = client.getDatabase(databaseName).withCodecRegistry(pojoCodecRegistry);
+            MongoDatabase database = client.getDatabase(DATABASE).withCodecRegistry(pojoCodecRegistry);
             collection = database.getCollection("drivers", Driver.class);
         }catch (Exception e){
             System.out.println("Error connecting to the database");
         }
     }
 
-    public void createPilot(Driver pilot) throws RuntimeException{
+    public static void createPilot(Driver pilot) throws RuntimeException{
         startConnection();
         if(collection == null){
             throw new RuntimeException("Error creating pilot");
@@ -50,7 +45,7 @@ public class CRUDOperationsPilot {
 
     }
 
-    public Driver readPilot(String code) throws RuntimeException{
+    public static Driver readPilot(String code) throws RuntimeException{
         startConnection();
         if(collection == null){
             stopConnection();
@@ -60,7 +55,7 @@ public class CRUDOperationsPilot {
         return collection.find(org.bson.Document.parse("{code: \"" + code + "\"}")).first();
     }
 
-    public List<Driver> readPilots(){
+    public static List<Driver> readPilots(){
         startConnection();
         ArrayList<Driver> drivers = new ArrayList<>();
         if(collection == null){
@@ -80,7 +75,7 @@ public class CRUDOperationsPilot {
         }
     }
 
-    public void updateDriver(Driver d){
+    public static void updateDriver(Driver d){
         startConnection();
         if (collection==null){
             stopConnection();
@@ -90,7 +85,7 @@ public class CRUDOperationsPilot {
         stopConnection();
     }
 
-    public void deleteDriver(Driver d){
+    public static void deleteDriver(Driver d){
         startConnection();
         if (collection==null){
             stopConnection();
@@ -100,7 +95,7 @@ public class CRUDOperationsPilot {
         stopConnection();
     }
 
-    public void showPilotsOrderedByAgeDescending(){
+    public static void showPilotsOrderedByAgeDescending(){
         startConnection();
         if (collection==null){
             stopConnection();
@@ -114,7 +109,7 @@ public class CRUDOperationsPilot {
             System.out.println("Error showing pilots");
         }
     }
-    public void showPilotsOlderThan(int age){
+    public static void showPilotsOlderThan(int age){
         startConnection();
         if (collection==null){
             stopConnection();
@@ -131,7 +126,7 @@ public class CRUDOperationsPilot {
         }
     }
 
-    public void stopConnection(){
+    public static void stopConnection(){
         client.close();
     }
 
