@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="f1-2006@ec2-54-160-92-6.compute-1.amazonaws.com">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.49">
+    <root id="1">
+      <ServerVersion>7.0.3</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="f1-2006">
+      <Current>1</Current>
+      <LocalIntrospectionTimestamp>2023-11-28.18:11:10</LocalIntrospectionTimestamp>
+    </schema>
+    <table id="3" parent="2" name="drivers"/>
+    <column id="4" parent="3" name="_id">
+      <DasType>ObjectId|12s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="5" parent="3" name="code">
+      <DasType>String|12s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="6" parent="3" name="constructors">
+      <DasType>Object|4999544s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="7" parent="3" name="constructors.constructorref">
+      <DasType>String|12s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="8" parent="3" name="constructors.name">
+      <DasType>String|12s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="9" parent="3" name="constructors.nationality">
+      <DasType>String|12s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="10" parent="3" name="constructors.url">
+      <DasType>String|12s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="11" parent="3" name="dob">
+      <DasType>ISODate|91s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="12" parent="3" name="driverid">
+      <DasType>Int32|4s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="13" parent="3" name="forename">
+      <DasType>String|12s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="14" parent="3" name="nationality">
+      <DasType>String|12s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="15" parent="3" name="surname">
+      <DasType>String|12s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="16" parent="3" name="url">
+      <DasType>String|12s</DasType>
+      <Position>13</Position>
+    </column>
+  </database-model>
+</dataSource>
