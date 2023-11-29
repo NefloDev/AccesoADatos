@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ecaa6825-6fed-4c1f-9841-267f4c85ff42" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CRUDOperationsPilot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CRUDOperationsPilot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.idesettings.quicklists",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -81,11 +80,19 @@
       <workItem from="1700592465036" duration="1554000" />
       <workItem from="1700749261453" duration="7000" />
       <workItem from="1701194382697" duration="4854000" />
+      <workItem from="1701273873564" duration="67000" />
+      <workItem from="1701273993862" duration="68000" />
+      <workItem from="1701274078381" duration="45000" />
+      <workItem from="1701279732750" duration="283000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
