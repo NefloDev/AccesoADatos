@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="336ba071-ea08-45ee-a095-a1095b1a1ca6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/MongoDBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/PostgreSQLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UD2/OpenAPIYuGiOh/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD2/OpenAPIYuGiOh/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UD2/PokemonApi/app/src/main/java/com/example/pokemonapi/ListCardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD2/PokemonApi/app/src/main/java/com/example/pokemonapi/ListCardManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AWSMongoDB/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AWSMongoDB/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +82,11 @@
       <workItem from="1700144428044" duration="5862000" />
       <workItem from="1700150324633" duration="822000" />
       <workItem from="1700157926910" duration="46000" />
+      <workItem from="1701797319769" duration="14000" />
+      <workItem from="1701797380786" duration="12000" />
+      <workItem from="1701797424000" duration="3000" />
+      <workItem from="1701797936583" duration="1000" />
+      <workItem from="1701801184370" duration="9000" />
     </task>
     <servers />
   </component>

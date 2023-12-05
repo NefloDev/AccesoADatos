@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecaa6825-6fed-4c1f-9841-267f4c85ff42" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/MongoDBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ExamenSQLMongoDB/src/main/java/PostgreSQLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UD2/OpenAPIYuGiOh/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD2/OpenAPIYuGiOh/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../UD2/PokemonApi/app/src/main/java/com/example/pokemonapi/ListCardManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD2/PokemonApi/app/src/main/java/com/example/pokemonapi/ListCardManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AWSDataBaseEjercicio/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AWSDataBaseEjercicio/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,27 +43,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -84,6 +93,13 @@
       <workItem from="1701273993862" duration="68000" />
       <workItem from="1701274078381" duration="45000" />
       <workItem from="1701279732750" duration="283000" />
+      <workItem from="1701280283071" duration="37000" />
+      <workItem from="1701797943310" duration="481000" />
+      <workItem from="1701798562400" duration="7000" />
+      <workItem from="1701798618170" duration="1728000" />
+      <workItem from="1701800374358" duration="567000" />
+      <workItem from="1701800956456" duration="224000" />
+      <workItem from="1701802786290" duration="5000" />
     </task>
     <servers />
   </component>
