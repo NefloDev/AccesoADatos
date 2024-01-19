@@ -1,5 +1,6 @@
-package org.example.ejercicioapirest.model;
+package org.example.ejercicioapirest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -25,5 +26,11 @@ public class Driver {
     private LocalDate dob;
 
     private String nationality;
+
+    @ManyToOne
+    @JoinColumn(name = "constructorid")
+    @JsonIgnoreProperties("drivers")
+    private Constructor constructor;
+
     private String url;
 }
