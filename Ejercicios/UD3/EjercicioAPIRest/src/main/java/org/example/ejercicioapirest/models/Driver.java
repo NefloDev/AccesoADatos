@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Data
@@ -27,7 +28,7 @@ public class Driver {
 
     private String nationality;
 
-    @ManyToOne
+    @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinColumn(name = "constructorid")
     @JsonIgnoreProperties("drivers")
     private Constructor constructor;
