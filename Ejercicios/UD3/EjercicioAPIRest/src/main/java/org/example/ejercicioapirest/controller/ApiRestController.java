@@ -1,15 +1,13 @@
 package org.example.ejercicioapirest.controller;
 
-import org.example.ejercicioapirest.models.Constructor;
-import org.example.ejercicioapirest.models.Driver;
+import org.example.ejercicioapirest.dto.*;
+import org.example.ejercicioapirest.entity.*;
 import org.example.ejercicioapirest.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import org.example.ejercicioapirest.models.Result;
 
 @RestController
 @RequestMapping("/api")
@@ -22,18 +20,18 @@ public class ApiRestController {
     }
 
     /*
-     * GET http://localhos:8080/api/drivers
+     * GET http://localhost:8080/api/drivers
      */
     @GetMapping("/drivers")
-    public ResponseEntity<List<Driver>> getAllDrivers() {
+    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
         return ResponseEntity.ok(service.getAllDrivers());
     }
 
     /*
-     * GET http://localhos:8080/api/drivers/alo
+     * GET http://localhost:8080/api/drivers/alo
      */
     @GetMapping("/drivers/{code}")
-    public ResponseEntity<Driver> getByCode(@PathVariable("code") String code) {
+    public ResponseEntity<DriverFullDTO> getByCode(@PathVariable("code") String code) {
         return this.service.getDriverByCode(code)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -73,7 +71,7 @@ public class ApiRestController {
      * GET http://localhost:8080/api/constructors
      */
     @GetMapping("/constructors")
-    public ResponseEntity<List<Constructor>> getAllConstructors() {
+    public ResponseEntity<List<ConstructorDTO>> getAllConstructors() {
         return ResponseEntity.ok(service.getAllConstructors());
     }
 
@@ -81,7 +79,7 @@ public class ApiRestController {
      * GET http://localhost:8080/api/constructors/mclaren
      */
     @GetMapping("/constructors/{constructorRef}")
-    public ResponseEntity<Constructor> getByConstructorRef(@PathVariable("constructorRef") String constructorRef) {
+    public ResponseEntity<ConstructorFullDTO> getByConstructorRef(@PathVariable("constructorRef") String constructorRef) {
         return this.service.getConstructorByRef(constructorRef)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -113,7 +111,7 @@ public class ApiRestController {
      */
     @DeleteMapping("/constructors/{constructorRef}")
     public ResponseEntity<Constructor> deleteByRef(@PathVariable("constructorRef") String constructorRef) {
-        this.service.deleteByRef(constructorRef);
+        this.service.deleteConstructorByRef(constructorRef);
         return ResponseEntity.noContent().build();
     }
 
@@ -121,7 +119,7 @@ public class ApiRestController {
      * GET http://localhost:8080/api/results
      */
     @GetMapping("/results")
-    public ResponseEntity<List<Result>> getAllResults() {
+    public ResponseEntity<List<ResultDTO>> getAllResults() {
         return ResponseEntity.ok(service.getAllResults());
     }
 
@@ -129,7 +127,7 @@ public class ApiRestController {
      * GET http://localhost:8080/api/results/2
      */
     @GetMapping("/results/{resultId}")
-    public ResponseEntity<Result> getByResultId(@PathVariable("resultId") Long id) {
+    public ResponseEntity<ResultFullDTO> getResultById(@PathVariable("resultId") Long id) {
         return this.service.getResultById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -162,6 +160,102 @@ public class ApiRestController {
     @DeleteMapping("/results/{resultId}")
     public ResponseEntity<Result> deleteResultById(@PathVariable("resultId") Long resultId) {
         this.service.deleteResultById(resultId);
+        return ResponseEntity.noContent().build();
+    }
+
+    /*
+     * GET http://localhost:8080/api/races
+     */
+    @GetMapping("/races")
+    public ResponseEntity<List<RaceDTO>> getAllRaces() {
+        return ResponseEntity.ok(service.getAllRaces());
+    }
+
+    /*
+     * GET http://localhost:8080/api/races/2
+     */
+    @GetMapping("/races/{raceId}")
+    public ResponseEntity<RaceFullDTO> getRaceById(@PathVariable("raceId") Long id) {
+        return this.service.getRaceById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    /*
+     * POST http://localhost:8080/api/races
+     */
+    @PostMapping("/races")
+    public ResponseEntity<Race> createRace(@RequestBody Race race) {
+        if (race.getRaceId() != null) {
+            return ResponseEntity.badRequest().build();
+        }
+        this.service.saveRace(race);
+        return ResponseEntity.ok(race);
+    }
+
+    /*
+     * PUT http://localhost:8080/api/races
+     */
+    @PutMapping("/races")
+    public ResponseEntity<Race> update(@RequestBody Race race) {
+        this.service.saveRace(race);
+        return ResponseEntity.ok(race);
+    }
+
+    /*
+     * DELETE http://localhost:8080/api/races/2
+     */
+    @DeleteMapping("/races/{raceId}")
+    public ResponseEntity<Race> deleteRaceById(@PathVariable("raceId") Long raceId) {
+        this.service.deleteRaceById(raceId);
+        return ResponseEntity.noContent().build();
+    }
+
+    /*
+     * GET http://localhost:8080/api/circuits
+     */
+    @GetMapping("/circuits")
+    public ResponseEntity<List<CircuitDTO>> getAllCircuits() {
+        return ResponseEntity.ok(service.getAllCircuits());
+    }
+
+    /*
+     * GET http://localhost:8080/api/circuits/sepang
+     */
+    @GetMapping("/circuits/{circuitRef}")
+    public ResponseEntity<Circuit> getRaceById(@PathVariable("circuitRef") String ref) {
+        return this.service.getCircuitByCircuitRef(ref)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    /*
+     * POST http://localhost:8080/api/circuits
+     */
+    @PostMapping("/circuits")
+    public ResponseEntity<Circuit> createCircuit(@RequestBody Circuit circuit) {
+        if (circuit.getCircuitId() != null) {
+            return ResponseEntity.badRequest().build();
+        }
+        this.service.saveCircuit(circuit);
+        return ResponseEntity.ok(circuit);
+    }
+
+    /*
+     * PUT http://localhost:8080/api/circuits
+     */
+    @PutMapping("/circuits")
+    public ResponseEntity<Circuit> update(@RequestBody Circuit circuit) {
+        this.service.saveCircuit(circuit);
+        return ResponseEntity.ok(circuit);
+    }
+
+    /*
+     * DELETE http://localhost:8080/api/circuits/sepang
+     */
+    @DeleteMapping("/circuits/{circuitRef}")
+    public ResponseEntity<Circuit> deleteCircuitByRef(@PathVariable("raceId") String ref) {
+        this.service.deleteCircuitByRef(ref);
         return ResponseEntity.noContent().build();
     }
 }

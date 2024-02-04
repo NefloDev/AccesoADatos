@@ -4,7 +4,7 @@ import Entities.Pilot;
 
 public class Main {
     public static void main(String[] args) {
-        String endpoint = "f1database.c5laar3pe76z.us-east-1.rds.amazonaws.com";
+        String endpoint = "sql106.infinityfree.com";
         String port = "5432";
         String usuario = "postgres";
         String passwd = "alejandro";

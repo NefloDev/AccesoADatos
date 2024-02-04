@@ -1,11 +1,10 @@
-package org.example.ejercicioapirest.models;
+package org.example.ejercicioapirest.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Data

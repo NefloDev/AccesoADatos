@@ -1,4 +1,4 @@
-package org.example.ejercicioapirest.models;
+package org.example.ejercicioapirest.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

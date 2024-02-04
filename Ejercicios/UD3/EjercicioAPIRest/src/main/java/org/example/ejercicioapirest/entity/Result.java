@@ -1,6 +1,4 @@
-package org.example.ejercicioapirest.models;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package org.example.ejercicioapirest.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

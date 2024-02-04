@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-233.11799.300">
+  <component name="dataSourceStorageLocal" created-in="IU-233.14015.106">
     <data-source name="f12006@f1database.c5laar3pe76z.us-east-1.rds.amazonaws.com" uuid="3df1c468-cb77-4ede-bb7c-fd50be792d9c">
       <database-info product="PostgreSQL" version="15.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="15.3" exact-driver-version="42.6">
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -15,6 +15,12 @@
           </node>
         </introspection-scope>
       </schema-mapping>
+    </data-source>
+    <data-source name="4201844_test@fdb1029.awardspace.net" uuid="260b1da8-2f94-4424-9410-cba63f3067d3">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="8.0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>4201844_test</user-name>
+      <schema-mapping />
     </data-source>
   </component>
 </project>

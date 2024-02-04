@@ -1,4 +1,4 @@
-package org.example.ejercicioapirest.models;
+package org.example.ejercicioapirest.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Data
