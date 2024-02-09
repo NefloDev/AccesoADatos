@@ -4,6 +4,7 @@ import org.example.ejercicioapirest.dto.*;
 import org.example.ejercicioapirest.entity.*;
 import org.example.ejercicioapirest.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +24,13 @@ public class ApiRestController {
      * GET http://localhost:8080/api/drivers
      */
     @GetMapping("/drivers")
-    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
-        return ResponseEntity.ok(service.getAllDrivers());
+    public ResponseEntity<List<DriverDTO>> getAllDrivers(
+            @RequestParam(defaultValue = "0") Integer page,
+            @RequestParam(defaultValue = "1") Integer size,
+            @RequestParam(defaultValue = "driverId") String sortBy,
+            @RequestParam(defaultValue = "ASC") String sortDirection) {
+        Page<DriverDTO> list = service.getAllDriversProjected(page, size, sortBy, sortDirection);
+        return ResponseEntity.ok(list.getContent());
     }
 
     /*

@@ -5,6 +5,10 @@ import org.example.ejercicioapirest.entity.*;
 import org.example.ejercicioapirest.mapper.*;
 import org.example.ejercicioapirest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,6 +55,14 @@ public class RestServiceImpl implements RestService {
     public List<DriverDTO> getAllDrivers() {
         return drivRepo.findAll().stream().map(driverDTOMapper).toList();
     }
+
+    @Override
+    public Page<DriverDTO> getAllDriversProjected(int page, int size, String sortBy, String sortDirection) {
+        Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortBy);
+        Pageable pageable = PageRequest.of(page, size, sort);
+        return drivRepo.findAllProjectedBy(pageable).map(driverDTOMapper);
+    }
+
     @Override
     public List<ConstructorDTO> getAllConstructors() {
         return constRepo.findAll().stream().map(constructorDTOMapper).toList();
